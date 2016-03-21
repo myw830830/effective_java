@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;userArray&apos; in &apos;affix.java.effective.login.LogInSystem&apos; to &apos;userList&apos;&#x0D;&#x0A;- Original project: &apos;LogInSystem&apos;&#x0D;&#x0A;- Original element: &apos;affix.java.effective.login.LogInSystem.userArray&apos;&#x0D;&#x0A;- Renamed element: &apos;affix.java.effective.login.LogInSystem.userList&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;userArray&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;affix.java.effective.login{LogInSystem.java[LogInSystem^userArray" name="userList" references="true" setter="false" stamp="1404199599580" textual="false" version="1.0"/>
+</session>

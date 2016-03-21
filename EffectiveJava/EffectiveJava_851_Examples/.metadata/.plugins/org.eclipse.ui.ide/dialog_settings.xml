@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="CleanDialogSettings">
+		<item value="500" key="DIALOG_WIDTH"/>
+		<item value="true" key="BUILD_ALL"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="440" key="DIALOG_HEIGHT"/>
+		<item value="280" key="DIALOG_Y_ORIGIN"/>
+		<item value="386" key="DIALOG_X_ORIGIN"/>
+		<item value="true" key="BUILD_NOW"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\ABCAB\affix_courses\EffectiveJava\EffectiveJava_851\Teacher"/>
+			<item value="C:\ABCAB\affix_courses\EffectiveJava\EffectiveJava_831\Code\EffectiveJava_812_Examples"/>
+			<item value="C:\ABCAB\affix_courses\EffectiveJava\EffectiveJava_721\Teacher"/>
+			<item value="D:\affix_Java_courses\EffectiveJava\EffectiveJava_801\Code\EffectiveJava_801_Examples"/>
+			<item value="D:\affix_Java_courses\EffectiveJava\EffectiveJava_801\Code\EJ_801_WIP"/>
+			<item value="D:\affix_Java_courses\EffectiveJava\EffectiveJava_721\Code\T2941_721_Examples"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="229" key="DIALOG_X_ORIGIN"/>
+		<item value="174" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

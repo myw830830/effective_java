@@ -1,0 +1,55 @@
+The Illuminating Javadoc of JDK 8
+
+One of the nice features of the standard JDK 8 API documentation is the ability to view all or different categories of methods as
+discussed in my blog post JDK 8 Javadoc Tweaked For Methods Listings. As convenient and useful as this categorization is, the text
+comments associated with many of the new classes and packages in JDK 8 are arguably even more useful, especially as many of us start
+to adopt JDK 8. I look at some of examples of highly useful JDK 8 API documentation in this post. In the course of this quick perusal
+of the JDK 8 Javadoc documentation, anyone entirely new to JDK 8 is bound to learn something about the libraries of JDK 8.
+
+Good examples of the usefulness of the JDK 8 API documentation are in the familiar String class documentation. That class features two
+new overloaded static methods, join(CharSequence, CharSequence...)and join(CharSequence delimiter, Iterable elements). The Javadoc 
+comments for these two new methods not only explain the methods' behaviors, but illustrate them with code that demonstrates the methods
+in use. This is similar to the Javadoc comment I've always found helpful on the String.substring(int, int) method.
+
+The all-new StringJoiner class includes code examples of its usage in the class-level Javadoc comments. One of the code examples seems
+targeted toward easing "traditional Java development" while the second example applies the power of lambda expressions and streams.
+
+Code examples are used liberally in other new (to JDK 8) classes' Javadoc documentation as well, especially in the java.util.streams
+package. The class-level Javadoc documentation for the java.util.stream.Collectors class provides code examples of 7 potential uses for
+Collectors such as accumulation and grouping. The Streaminterface provides an example of useful JDK 8 documentation on an interface.
+The text detail on applying theStream interface is accompanied by a simple code example that demonstrates "an aggregate operation
+usingStream and IntStream." The java.util.stream package itself has great description text regarding Streams that includes a simple
+example of employing a Stream with a detailed discussion of what is going on with that example. The package documentation for
+java.util.stream goes onto discuss several different aspects of using Streams such as stream operations and pipelines, parallelism,side effects, and reduction.
+
+Just as it is important to understand Streams when working with JDK 8 lambda expressions, it is also useful to understand functional
+interfaces when using lambda expressions and the java.util.function package-leveldescription provides a nice overview.
+
+Another good example of JDK 8 Javadoc-based documentation with enlightening code examples is the documentation for Calendar.Builder,
+a class I covered in the post JDK 8's Calendar.Builder.
+
+Most of the JDK 8 Javadoc-based documentation I've discussed so far provides code examples demonstrating use of the described package,
+class, or interface. Some of the new JDK API documentation uses code to demonstrate the new API feature by showing code that formerly
+would have needed to be written but is replaced by the new feature. Good examples of this exist in the well-known Java Map interface.
+The Java Map interface has several new methods specified in JDK 8 and many of these new JDK 8 methods include Javadoc documentation
+indicating code that would have been required prior to JDK 8 to accomplish the same thing as the newly added method. For example, the
+methods computeIfAbsent, computeIfPresent, forEach,getOrDefault, and putIfAbsent methods all have comments providing code demonstrating 
+what the "default implementation is equivalent to." Although this may be explaining the default behavior of Map implementations, it is
+also useful for understanding the type of pre-JDK 8 code these methods emulate or replace.
+
+JDK 8 introduces a completely new Date/Time API and the java.time package has a nice package-level overview of the API. Constructs in
+this entirely new package have individual level comments that are useful for learning this API. Examples include Clock, Instant,
+LocalDateTime, Period, and ZonedDateTime. The package-level documentation helps clarify the relationship between LocalDate,
+LocalDateTime, LocalTime,ZonedDateTime, and Instant.
+
+JDK 8 Javadoc isn't only changed for the standard JDK API. JDK 8 brings some enhancements to the javadoc toolthat will impact
+developers' own Javadoc comments and code. It is also important to be aware of the -Xdoclint:none option for preventing Javadoc that doesn't conform to "W3C HTML 4.01 HTML" from breaking. The final bullet on theEnhancements in Javadoc, Java SE 8 page states that this Javadoc HTML conformance compliance "feature is also available in javac, although it is not enabled by default there." That same bullet tells us that we can learn more about the -Xdoclint:none flag by running javadoc -X.
+
+Conclusion
+I sometimes hear that there is never a need for comments when the code speaks for itself. I believe that is true to a degree, but the
+presence of useful Javadoc comments on packages, classes, and interfaces and their methods that were introduced with JDK 8 will make
+the adoption of JDK 8 much quicker than reading everyone of these constructs' code listings would. It reinforces my opinion that we
+often don't need comments on specific lines of code that do something, but most often do need comments on interfaces and contracts. 
+In my ideal world, the code would be so well written that the only necessary comments would be Javadoc style comments (/** */) and we'd
+need very little // or /* */ style comments. JDK 8 continues a trend that has occurred in recent major revisions of the JDK of improved
+Javadoc comments in terms of readability and understandability.

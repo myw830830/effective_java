@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;oc&apos; in &apos;affix.java8.effective.streams.PersonDataStatistics.main(...)&apos; to &apos;stats&apos;&#x0D;&#x0A;- Original project: &apos;LambdasInAction&apos;&#x0D;&#x0A;- Original element: &apos;affix.java8.effective.streams.PersonDataStatistics.main(String[]).oc&apos;&#x0D;&#x0A;- Renamed element: &apos;oc&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;oc&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;affix.java8.effective.streams{PersonDataStatistics.java[PersonDataStatistics~main~\[QString;@oc!1216!1268!1237!1238!QPersonDataStatistics;!0!false" name="stats" references="true" stamp="1424259523314" version="1.0"/>
+</session>

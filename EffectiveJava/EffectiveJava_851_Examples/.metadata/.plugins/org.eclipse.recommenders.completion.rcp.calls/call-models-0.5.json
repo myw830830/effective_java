@@ -1,0 +1,12 @@
+{
+  "C:\\Program Files\\Java\\jdk1.8.0\\jre\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "C:\\Program Files\\Java\\jdk1.8.0\\jre\\lib\\rt.jar",
+    "status": "RESOLVED"
+  },
+  "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_801\\Code\\EJ_801_WIP\\Java8Test\\src": {
+    "location": "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_801\\Code\\EJ_801_WIP\\Java8Test\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_801\\Code\\EJ_801_WIP\\Java8Test\\src\u0027. Skipped."
+  }
+}

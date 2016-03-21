@@ -1,0 +1,48 @@
+{
+  "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_712\\Code\\T2941_712_Examples\\NestedClasses\\src": {
+    "location": "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_712\\Code\\T2941_712_Examples\\NestedClasses\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_712\\Code\\T2941_712_Examples\\NestedClasses\\src\u0027. Skipped."
+  },
+  "C:\\Program Files (x86)\\Java\\jre7\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "C:\\Program Files (x86)\\Java\\jre7\\lib\\rt.jar",
+    "status": "RESOLVED",
+    "error": "No class path info available for \u0027C:\\Program Files (x86)\\Java\\jre7\\lib\\rt.jar\u0027. Skipped."
+  },
+  "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_721\\Code\\T2941_721_Examples\\Enums\\src": {
+    "location": "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_721\\Code\\T2941_721_Examples\\Enums\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_721\\Code\\T2941_721_Examples\\Enums\\src\u0027. Skipped."
+  },
+  "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_721\\Code\\T2941_721_Examples\\LogInSystem\\src": {
+    "location": "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_721\\Code\\T2941_721_Examples\\LogInSystem\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_721\\Code\\T2941_721_Examples\\LogInSystem\\src\u0027. Skipped."
+  },
+  "D:\\affix_Java_courses\\EffectiveJava\\Effective_Java_722\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\CompleteTnF\\src": {
+    "location": "D:\\affix_Java_courses\\EffectiveJava\\Effective_Java_722\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\CompleteTnF\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\affix_Java_courses\\EffectiveJava\\Effective_Java_722\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\CompleteTnF\\src\u0027. Skipped."
+  },
+  "D:\\affix_Java_courses\\EffectiveJava\\Effective_Java_722\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\MoneyService\\src": {
+    "location": "D:\\affix_Java_courses\\EffectiveJava\\Effective_Java_722\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\MoneyService\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\affix_Java_courses\\EffectiveJava\\Effective_Java_722\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\MoneyService\\src\u0027. Skipped."
+  },
+  "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_801\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\TrackAndField\\src": {
+    "location": "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_801\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\TrackAndField\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_801\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\TrackAndField\\src\u0027. Skipped."
+  },
+  "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_801\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\MoneyService\\src": {
+    "location": "D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_801\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\MoneyService\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\affix_Java_courses\\EffectiveJava\\EffectiveJava_801\\ABCAB_PPT\\Code\\EffectiveJava_722_Solutions\\MoneyService\\src\u0027. Skipped."
+  },
+  "C:\\Program Files\\Java\\jdk1.8.0\\jre\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "C:\\Program Files\\Java\\jdk1.8.0\\jre\\lib\\rt.jar",
+    "status": "RESOLVED"
+  }
+}

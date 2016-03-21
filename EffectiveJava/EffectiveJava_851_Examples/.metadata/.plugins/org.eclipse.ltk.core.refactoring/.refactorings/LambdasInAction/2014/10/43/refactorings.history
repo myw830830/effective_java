@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;nr&apos; in &apos;affix.java8.effective.streams.PersonData&apos; to &apos;id&apos;&#x0D;&#x0A;- Original project: &apos;LambdasInAction&apos;&#x0D;&#x0A;- Original element: &apos;affix.java8.effective.streams.PersonData.nr&apos;&#x0D;&#x0A;- Renamed element: &apos;affix.java8.effective.streams.PersonData.id&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;nr&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;affix.java8.effective.streams{PersonData.java[PersonData^nr" name="id" references="true" setter="false" stamp="1414064329909" textual="false" version="1.0"/>
+</session>

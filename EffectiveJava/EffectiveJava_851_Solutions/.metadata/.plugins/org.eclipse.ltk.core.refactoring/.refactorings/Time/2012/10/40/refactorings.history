@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;hour&apos; in &apos;affix.java.effective.time.Time.Time(...)&apos; to &apos;h&apos;&#x0D;&#x0A;- Original project: &apos;Time&apos;&#x0D;&#x0A;- Original element: &apos;affix.java.effective.time.Time.Time(int, int, int, int).hour&apos;&#x0D;&#x0A;- Renamed element: &apos;hour&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;hour&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;affix.java.effective.time{Time.java[Time~Time~I~I~I~I@hour!2070!2077!2074!2077!I!0!true" name="h" references="true" stamp="1349250805122" version="1.0"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;currMap&apos; in &apos;affix.java.effective.moneyservice.TransactionCollector&apos; to &apos;currencyMap&apos;&#x0D;&#x0A;- Original project: &apos;MoneyService&apos;&#x0D;&#x0A;- Original element: &apos;affix.java.effective.moneyservice.TransactionCollector.currMap&apos;&#x0D;&#x0A;- Renamed element: &apos;affix.java.effective.moneyservice.TransactionCollector.currencyMap&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;currMap&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;affix.java.effective.moneyservice{TransactionCollector.java[TransactionCollector^currMap" name="currencyMap" references="true" setter="false" stamp="1414742110522" textual="false" version="1.0"/>
+</session>
