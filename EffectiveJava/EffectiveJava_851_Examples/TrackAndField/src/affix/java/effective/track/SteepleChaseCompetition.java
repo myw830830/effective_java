@@ -14,10 +14,6 @@ public class SteepleChaseCompetition extends AbstractTrackCompetition {
 			competitors[i] = new SteepleChaseCompetitor(ids[i]);
 		}
 	}
-
-//	public String getCompetitionName() {
-//		return super.getCompetitionName();
-//	}
 	
 	public SteepleChaseCompetitor[] getCompetitors() {
 		SteepleChaseCompetitor[] temp = new SteepleChaseCompetitor[competitors.length];

@@ -1,22 +1,29 @@
 package affix.java8.dateandtime;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class BirthdayWaitTest {
 	
 
-	private static int calculate(LocalDate birthday){	
+	private static int calculate(LocalDate birthday) {	
 		
 		System.out.println("Checking up birthday " + birthday);
 		
 		int waitDays = 0;
 		LocalDate today = LocalDate.now();
-		
-		// Add code here
+		LocalDate thisYearBirthDay = LocalDate.of(today.getYear(), birthday.getMonth(), birthday.getDayOfMonth());
+		LocalDate nextYearBirthDay = thisYearBirthDay.plusYears(1);
+
+		if(thisYearBirthDay.isAfter(today)){
+			waitDays = (int)today.until(thisYearBirthDay, ChronoUnit.DAYS);
+		}
+		else{
+			waitDays = (int)today.until(nextYearBirthDay, ChronoUnit.DAYS);
+		}
 		
 		return waitDays;
 	}
-	
 	
 	public static void main(String[] args) {
 

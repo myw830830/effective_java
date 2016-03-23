@@ -1,5 +1,6 @@
 package affix.java.effective.moneyservice;
 
+import java.io.Serializable;
 
 /**
  * This class represents a transaction performed by the MoneyService system.
@@ -8,8 +9,9 @@ package affix.java.effective.moneyservice;
  * Bookkeeping requires that all transaction also holds a unique id.
  * A Transaction object represents a value class and should be design as immutable.
  */
-public final class Transaction {
+public final class Transaction implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private final Money money;
 	private final TransactionMode mode;
 	private final int id;

@@ -9,7 +9,7 @@ public class MyMethodRefs {
 		String[] strings = "Mary had a little lamb".split(" ");
 		Arrays.sort(strings, String::compareToIgnoreCase);
 		System.out.println(Arrays.toString(strings));
-
+		
 		System.out.println("-------------------------------");
 
 	}

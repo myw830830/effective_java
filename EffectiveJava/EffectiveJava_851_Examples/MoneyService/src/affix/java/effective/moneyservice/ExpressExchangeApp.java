@@ -33,7 +33,8 @@ public class ExpressExchangeApp {
 				new Money("DKK", 10000), 
 				new Money("CHF", 1500),
 				new Money("RUB", 12000),
-				new Money("AUD", 500)		
+				new Money("AUD", 500),
+				new Money("CNY", 10000)
 		};	
 		
 		// configure site

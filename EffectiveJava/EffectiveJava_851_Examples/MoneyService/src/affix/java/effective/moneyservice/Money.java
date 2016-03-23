@@ -1,11 +1,14 @@
 package affix.java.effective.moneyservice;
 
+import java.io.Serializable;
+
 /**
  * Instances of this class is used for transactions and for representing state for
  * specific currencies for an implementor of MoneyService
  */
-public class Money {
+public class Money implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	/**
 	 * Code for Money object
 	 */

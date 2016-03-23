@@ -157,7 +157,7 @@ public class ExpressExchangeGUI extends JFrame{
 				if(mode == TransactionMode.BUY){
 					transactionValue = model.buyMoney(anOrder);
 					if(!(transactionValue > 0)){
-						JOptionPane.showMessageDialog(ExpressExchangeGUI.this, "Can not afford transaction", "Transaction Message", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(ExpressExchangeGUI.this, "Cannot afford transaction", "Transaction Message", JOptionPane.WARNING_MESSAGE);
 					}
 				}
 				else{

@@ -2,9 +2,12 @@ package affix.java.effective.moneyservice;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public class ExpressExchange implements MoneyService {
 	
@@ -68,13 +71,17 @@ public class ExpressExchange implements MoneyService {
 		
 		String targetCurrency = buyOrder.getCurrencyCode();
 		// Check parameters for validity
-		// Add code here	
-		
-		
+		if(!currencyMap.containsKey(targetCurrency)){
+			throw new IllegalArgumentException("Currency " + targetCurrency + " isn't supported!");
+		}		
 		
 		// Convert amount to reference money calling method convertMoney()
 		if(canAfford(buyOrder)){
-			convertedMoney = convertMoney(buyOrder);	
+			
+			BiFunction<Double, Integer, Double> convertMoneyFunc = convertMoney();
+			Currency currency = currencyMap.get(buyOrder.getCurrencyCode());
+			Integer amount = buyOrder.getAmount();
+			convertedMoney = convertMoneyFunc.apply(currency.getBuyRate(), amount);	
 			
 			// Get current Money of target type from siteMoneyMap 
 			Money targetMoney = siteMoneyMap.get(targetCurrency);
@@ -83,9 +90,8 @@ public class ExpressExchange implements MoneyService {
 			refMoney.setAmount(refMoney.getAmount() - convertedMoney);
 		
 			// Create a Transaction object, store in collection
-			// Add code here
-			
-			
+			Transaction t = new Transaction(buyOrder);
+			transactions.add(t);			
 		}
 					
 		return convertedMoney;
@@ -104,13 +110,17 @@ public class ExpressExchange implements MoneyService {
 		
 		String targetCurrency = sellOrder.getCurrencyCode();
 		// Check parameters for validity
-		// Add code here
-
+		if(!currencyMap.containsKey(targetCurrency)){
+			throw new IllegalArgumentException("Currency " + targetCurrency + " isn't supported!");
+		}
 		
 		if(canAfford(sellOrder)){
 			
 			// Convert amount to reference money calling method convertMoney()
-			convertedMoney = convertMoney(sellOrder);
+			BiFunction<Double, Integer, Double> convertMoneyFunc = convertMoney();
+			Currency currency = currencyMap.get(sellOrder.getCurrencyCode());
+			Integer amount = sellOrder.getAmount();
+			convertedMoney = convertMoneyFunc.apply(currency.getSellRate(), amount);	
 					
 			// Get current Money of target type from siteMoneyMap 
 			Money targetMoney = siteMoneyMap.get(targetCurrency);
@@ -119,9 +129,8 @@ public class ExpressExchange implements MoneyService {
 			refMoney.setAmount(refMoney.getAmount() + convertedMoney);
 		
 			// Create a Transaction object, store in collection
-			// Add code here
-			
-			
+			Transaction t = new Transaction(sellOrder);
+			transactions.add(t);			
 		}		
 		
 		return convertedMoney;
@@ -135,32 +144,55 @@ public class ExpressExchange implements MoneyService {
 	 */
 	public boolean canAfford(Order orderData){
 		
-		// Add code here	
+		int amount = orderData.getAmount();
+		if(orderData.getMode() == TransactionMode.BUY){
+			BiFunction<Double, Integer, Double> convertMoneyFunc = convertMoney();
+			Currency currency = currencyMap.get(orderData.getCurrencyCode());
+			double temp = convertMoneyFunc.apply(currency.getBuyRate(), amount);
+			
+			if(temp <= refMoney.getAmount()){	
+				return true;
+			}
+		}
+		else{		
+			Money targetMoney = siteMoneyMap.get(orderData.getCurrencyCode());
+			if(amount <= targetMoney.getAmount()){	
+				return true;
+			}			
+		}
 		
-		return true;
+		return false;
 	}
 
-	/**
-	 * This method will convert a Money from any type into reference Money
-	 * @param anOrder holding order data
-	 * @return double holding corresponding value in reference Money
-	 */
-	private double convertMoney(Order anOrder) {
-
-		Currency fromCurrency = currencyMap.get(anOrder.getCurrencyCode());
-		double rate = 0.0;
+//	/**
+//	 * This method will convert a Money from any type into reference Money
+//	 * @param anOrder holding order data
+//	 * @return double holding corresponding value in reference Money
+//	 */
+//	private double convertMoney(Order anOrder) {
+//
+//		Currency fromCurrency = currencyMap.get(anOrder.getCurrencyCode());
+//		double rate = 0.0;
+//		
+//		switch(anOrder.getMode()){
+//		case BUY:
+//			rate = fromCurrency.getBuyRate();
+//			break;
+//		case SELL:
+//			rate = fromCurrency.getSellRate();
+//			break;
+//		}
+//		double value = rate * anOrder.getAmount();
+//		
+//		return value;
+//	}
+	
+	private static BiFunction<Double, Integer, Double> convertMoney(){
 		
-		switch(anOrder.getMode()){
-		case BUY:
-			rate = fromCurrency.getBuyRate();
-			break;
-		case SELL:
-			rate = fromCurrency.getSellRate();
-			break;
-		}
-		double value = rate * anOrder.getAmount();
-		
-		return value;
+		BiFunction<Double, Integer, Double> biFunc
+       = (Double rate, Integer amount) -> {return rate * amount;};
+       
+		return biFunc;
 	}
 
 	/**
@@ -231,8 +263,9 @@ public class ExpressExchange implements MoneyService {
 
 	@Override
 	public void shutDownService() {	
-		// Add code here	
-		
+		System.out.println("Debug: calling shutDownService()");
+		Collections.sort(transactions, Comparator.comparingInt(Transaction::getId));
+		MoneyServiceUtils.storeTransactions("Transactions.ser", transactions);
 	}	
 	
 }

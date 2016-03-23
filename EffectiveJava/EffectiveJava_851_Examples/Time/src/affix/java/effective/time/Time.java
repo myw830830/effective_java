@@ -150,13 +150,7 @@ public final class Time implements Comparable<Time> {
 	 */
 	@Override
 	public String toString(){		
-		StringBuilder sb = new StringBuilder();
-		sb.append(String.format("%02d", this.hour) + ":");
-		sb.append(String.format("%02d", this.minute) + ":");
-		sb.append(String.format("%02d", this.second) + ".");
-		sb.append(String.format("%02d", this.hundred));
-		
-		return sb.toString();
+		return String.format("%02d:%02d:%02d.%02d", this.hour, this.minute, this.second, this.hundred);
 	}
 
 	

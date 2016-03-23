@@ -1,18 +1,21 @@
 package affix.java.effective.login;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class User implements Comparable<User>{
 
-	public static final int LOW_PRIORITY = 1;
-	public static final int MEDIUM_PRIORITY = 2;
-	public static final int HIGH_PRIORITY = 3;	
+//	public static final int LOW_PRIORITY = 1;
+//	public static final int MEDIUM_PRIORITY = 2;
+//	public static final int HIGH_PRIORITY = 3;	
 		
 	private static final int MAX = 6;
 
 	private final String userId;
-	private String[] pwds;	
+//	private String[] pwds;	
+	private Deque<String> pwds;	
 	private boolean loggedIn;
-	private int prio;
+	private Priority prio;
 	
 	/**
 	 * Constructor setting up a new User instance
@@ -28,10 +31,10 @@ public class User implements Comparable<User>{
 			throw new IllegalArgumentException("Password cannot be empty!");
 		}
 		userId=userName;
-		pwds = new String[MAX];
-		pwds[0] = password;
+		pwds = new ArrayDeque<>();
+		pwds.addFirst(password);
 
-		prio = MEDIUM_PRIORITY;
+		prio = Priority.MEDIUM_PRIORITY;
 		loggedIn = false;
 	}
 	
@@ -64,7 +67,7 @@ public class User implements Comparable<User>{
 	 * @return an int holding current Priority level
 	 */
 	public int getPrio() {
-		return prio;
+		return prio.getPrioLevel();
 	}
 
 	/**
@@ -72,7 +75,12 @@ public class User implements Comparable<User>{
 	 * @param p holds a Priority level
 	 */
 	void setPrio(int p){
-		prio = p;
+		for (Priority temp : Priority.values()) {
+			if (temp.getPrioLevel() == p) {
+				prio = temp;
+				break;
+			}
+		}		
 	}
 	
 	/**
@@ -86,7 +94,7 @@ public class User implements Comparable<User>{
 		
 		boolean ok = false;
 		if(userName.equals(userId)){
-			String pwd = pwds[0];
+			String pwd = pwds.peekFirst();
 			if(!loggedIn && password.equals(pwd)){
 				ok = true;
 				loggedIn = true;
@@ -111,17 +119,14 @@ public class User implements Comparable<User>{
 		
 		if(loggedIn){
 			// check that password does not exist in array
-			for(String pwd : pwds){
-				if(pwd!=null && pwd.equals(password)){
-					ok = false;
-				}
+			if(pwds.contains(password)){
+				ok = false;
 			}
-			// add new password to list, rotate if needed
-			if(ok){
-				for(int x=MAX-1; x>0; x--){
-					pwds[x] = pwds[x-1];
+			else {// add new password to list, rotate if needed
+				if(pwds.size() == MAX){
+					pwds.removeLast();
 				}
-				pwds[0] = password;
+				pwds.addFirst(password);
 			}
 		}
 		return ok;
@@ -133,7 +138,7 @@ public class User implements Comparable<User>{
 	 */
 	String[] getPasswords(){
 		String[] userPwds = new String[MAX];
-		userPwds = pwds.clone();
+		pwds.toArray(userPwds);
 		return userPwds;
 	}
 

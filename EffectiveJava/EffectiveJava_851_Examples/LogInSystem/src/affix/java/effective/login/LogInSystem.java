@@ -2,8 +2,9 @@ package affix.java.effective.login;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 
@@ -17,15 +18,16 @@ import java.util.List;
 class LogInSystem {
 	
 	private final User admin;
-	private List<User> userList;
-
+//	private List<User> userList;
+	private Map<String, User> userMap;
+	
 	private static final LogInSystem SYSTEM = new LogInSystem();
 
 	/**
 	 * Private constructor will prohibit uncontrolled access to this singleton class
 	 */
 	private LogInSystem(){
-		userList = new ArrayList<>();
+		userMap = new HashMap<>();
 		admin = new User("SysAdmin", "ImTheBoss");
 		System.out.println(" *** SysAdmin Log: SysAdmin singleton instance created *** ");
 	}
@@ -50,16 +52,10 @@ class LogInSystem {
 
 		if(!userName.equals("SysAdmin")){
 			// check if admin is logged in
-			if(admin.isLoggedIn()){
-				// check if User is not already stored
-				if(findUser(userName) == null){
-					// find first free index for new User
-					userList.add(newUser);
-					stored = true;
-					System.out.println(" +++ SysAdmin Log: User " + userName + " added to system +++ ");
-				}
+			if(admin.isLoggedIn() && userMap.putIfAbsent(userName, newUser) == null){
+				stored = true;
+				System.out.println(" +++ SysAdmin Log: User " + userName + " added to system +++ ");
 			}
-
 		}
 		return stored;
 	}
@@ -76,21 +72,21 @@ class LogInSystem {
 		// check if admin is logged in
 		if(admin.isLoggedIn()){
 			// look for specific User
-			for(int i=0; i<userList.size(); i++){
-				User temp = userList.get(i);
-				if(temp.getUserId().equals(userName)){
-					if(temp.isLoggedIn()){
-						logOutUser(temp.getUserId());
-					}
-					userList.remove(temp);				
-					removed = true;
-					System.out.println(" --- SysAdmin Log: User " + userName + " removed from system --- ");	
-					break;
+			if(userMap.containsKey(userName)) {
+				if(userMap.get(userName).isLoggedIn()){
+					logOutUser(userName);
 				}
+				userMap.remove(userName);				
+				removed = true;
+				System.out.println(" --- SysAdmin Log: User " + userName + " removed from system --- ");	
 			}
 		}
 
 		return removed;	
+	}
+	
+	User findUser(String userName){
+		return userMap.get(userName);		
 	}
 
 
@@ -107,7 +103,7 @@ class LogInSystem {
 			ok = logInAdmin(password);
 		}
 		else{
-			User u = findUser(userName);
+			User u = userMap.get(userName);
 			if(u != null && u.logIn(userName, password)){
 				ok=true;
 				System.out.println(" *** System Log: User " + userName + " logged in *** ");
@@ -128,7 +124,7 @@ class LogInSystem {
 			ok = logOutAdmin();
 		}
 		else{
-			User u = findUser(userName);
+			User u = userMap.get(userName);
 			if(u != null && u.isLoggedIn()){
 				u.setLoggedIn(false);
 				ok = true;
@@ -138,33 +134,12 @@ class LogInSystem {
 		return ok;
 	}	
 
-	/**
-	 * This is a convenience method that will look through the array of users in order
-	 * to find a specific user
-	 * @param userName the name of a user to find
-	 * @return User object mapped to userName or null if not found
-	 */
-	User findUser(String userName){
-		User u = null;
-		boolean found = false;
-		
-		Iterator<User> iter = userList.iterator();
-		while(iter.hasNext() && !found){
-			User temp = iter.next();
-			String tempName = temp.getUserId();
-			if(tempName.equals(userName)){
-				u = temp;
-				found = true;
-			}
-		}
-		return u;
-	}
-
+	
 	/**
 	 * @return int holding number of current User objects
 	 */
 	int getNoOfUsers() {
-		return userList.size();
+		return userMap.size();
 	}
 
 
@@ -172,7 +147,7 @@ class LogInSystem {
 	 * Cleaning up the internal array
 	 */
 	void removeAllUsers(){
-		userList.clear();
+		userMap.clear();
 	}
 
 
@@ -215,7 +190,7 @@ class LogInSystem {
 	 * @return List<User> holding all User objects currently registered with the LogInSystem
 	 */
 	List<User> getUsers() {
-		return Collections.unmodifiableList(userList);
+		return Collections.unmodifiableList(new ArrayList<>(userMap.values()));
 	}
 	
 }
